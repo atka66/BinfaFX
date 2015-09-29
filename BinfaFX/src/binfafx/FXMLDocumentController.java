@@ -73,10 +73,13 @@ public class FXMLDocumentController implements Initializable {
             fileLabel.setText("File Name: " + file);
             depthLabel.setText("Depth: " + binTree.getDepth());
             meanLabel.setText("Mean: " + binTree.getMean());
-            varLabel.setText("Dev: \n" + binTree.getDev());
+            varLabel.setText("Dev: " + binTree.getDev());
             if (drawCBox.isSelected()) {
                 System.out.println("Drawing may take a while...\n");
                 binTree.drawTree(canvas, gc);
+            } else {
+                gc.setFill(Color.WHITE);
+                gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
             }
         } else {
             gc.setFill(Color.WHITE);

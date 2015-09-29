@@ -22,6 +22,7 @@ public class BinaryTree {
     private Node currentNode = root;
     private int depth, maxDepth, meanSum, meanQ;
     private double mean, disp, dispSum;
+    private long elem = 0;
 
     public void insert(char b) {
         if (b == '0') {
@@ -42,6 +43,7 @@ public class BinaryTree {
     }
 
     int getDepth() {
+        elem = 0;
         depth = maxDepth = 0;
         depthRec(root);
         return maxDepth - 1;
@@ -69,6 +71,7 @@ public class BinaryTree {
 
     void depthRec(Node node) {
         if (node != null) {
+            elem++;
             depth++;
             if (depth > maxDepth) {
                 maxDepth = depth;
@@ -109,6 +112,7 @@ public class BinaryTree {
         System.out.println("Depth = " + getDepth());
         System.out.println("Mean = " + getMean());
         System.out.println("Dev = " + getDev());
+        System.out.println("Elemek = " + elem);
     }
 
     public void writeFile(PrintWriter writer) {
